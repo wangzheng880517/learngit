@@ -27,12 +27,11 @@ class GetMonogdb():
             data.append(i)
     def insert_all(self,data):
         collect=self._conn_collect()
-        print type(collect)
         collect.insert(data)
 
     def find_limits(self,limits):
         data=[]
-        datas=self._conn_collect().find_one(limit=limits)
+        datas=self._conn_collect().find(limit=limits)
         for row in datas:
             data.append(row)
         return data
